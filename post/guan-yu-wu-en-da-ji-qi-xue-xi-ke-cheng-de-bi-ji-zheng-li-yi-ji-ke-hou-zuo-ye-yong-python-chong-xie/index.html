@@ -1,0 +1,256 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>关于吴恩达机器学习课程的笔记整理以及课后作业用Python重写 | Liu, Jian&#39;s Blog</title>
+<link rel="shortcut icon" href="https://JianLiu-Blog.github.io/favicon.ico?v=1735805148679">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://JianLiu-Blog.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="关于吴恩达机器学习课程的笔记整理以及课后作业用Python重写 | Liu, Jian&#39;s Blog - Atom Feed" href="https://JianLiu-Blog.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="看了点西瓜书，感觉有点啃不动，听说吴恩达老师的机器学习课程比较好入门，遂来听课，课程笔记以及课后作业会在这里记录。
+
+前四章知识点总结
+
+关于机器学习介绍、监督学习、无监督学习可以看之前的笔记整理。（未完成）
+
+
+模型描述
+代价函数
+梯度下..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://JianLiu-Blog.github.io">
+  <img class="avatar" src="https://JianLiu-Blog.github.io/images/avatar.png?v=1735805148679" alt="">
+  </a>
+  <h1 class="site-title">
+    Liu, Jian&#39;s Blog
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Liujian1997" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+        <a href="https://www.zhihu.com/people/san-sheng-15-30" target="_blank">
+          <i class="ri-zhihu-line"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              关于吴恩达机器学习课程的笔记整理以及课后作业用Python重写
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-09-16
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>看了点西瓜书，感觉有点啃不动，听说吴恩达老师的机器学习课程比较好入门，遂来听课，课程笔记以及课后作业会在这里记录。</p>
+<!-- more -->
+<h1 id="前四章知识点总结">前四章知识点总结</h1>
+<blockquote>
+<p>关于机器学习介绍、监督学习、无监督学习可以看之前的笔记整理。（未完成）</p>
+</blockquote>
+<hr>
+<h2 id="模型描述">模型描述</h2>
+<h2 id="代价函数">代价函数</h2>
+<h2 id="梯度下降法">梯度下降法</h2>
+<h3 id="特征缩放">特征缩放</h3>
+<h3 id="学习率">学习率</h3>
+<h2 id="正规方程法最小二乘法">正规方程法（最小二乘法）</h2>
+<h2 id="两种线性回归方法的优缺点比较">两种线性回归方法的优缺点比较</h2>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%89%8D%E5%9B%9B%E7%AB%A0%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93">前四章知识点总结</a>
+<ul>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E6%8F%8F%E8%BF%B0">模型描述</a></li>
+<li><a href="#%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0">代价函数</a></li>
+<li><a href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95">梯度下降法</a>
+<ul>
+<li><a href="#%E7%89%B9%E5%BE%81%E7%BC%A9%E6%94%BE">特征缩放</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%8E%87">学习率</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AD%A3%E8%A7%84%E6%96%B9%E7%A8%8B%E6%B3%95%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95">正规方程法（最小二乘法）</a></li>
+<li><a href="#%E4%B8%A4%E7%A7%8D%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%AF%94%E8%BE%83">两种线性回归方法的优缺点比较</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://JianLiu-Blog.github.io/post/ji-yu-esp32-de-ping-heng-xiao-che-balancecar/">
+              <h3 class="post-title">
+                基于ESP32的平衡小车BalanceCar
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'Ov23lievf4UqLaA6mF0J',
+    clientSecret: 'a60d18f86b03bc0ad091687048712bd358b9be68',
+    repo: 'JianLiu-Blog.github.io',
+    owner: 'JianLiu-Blog',
+    // admin: ['Liujian1997'],
+    admin: [ 'Liujian1997', 'JianLiu-Blog'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    // id: 'Demo',
+    // id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    proxy:"https://proxy-gitalk-api.netlify.app/github_access_token"
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+<!-- <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'e46f6dec7c07145c652c',
+    clientSecret: 'd1a0b627f9b76d21bd3080d1777d0aa0ad55dd83',
+    accessToken: '6a2f4d91a1f188a2089e70c2a7b63628f3e9e664',
+    repo: 'gitalk',
+    owner: 'gitalk',
+    admin: ['booxood', 'mamboer'],
+    id: 'Demo',
+    distractionFreeMode: true
+  });
+  gitalk.render('gitalk-container');
+</script> -->
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://JianLiu-Blog.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

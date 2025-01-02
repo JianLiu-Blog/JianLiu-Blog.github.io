@@ -1,0 +1,324 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【数据结构】串、数组、矩阵和广义表 | Liu, Jian&#39;s Blog</title>
+<link rel="shortcut icon" href="https://JianLiu-Blog.github.io/favicon.ico?v=1735805148679">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://JianLiu-Blog.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【数据结构】串、数组、矩阵和广义表 | Liu, Jian&#39;s Blog - Atom Feed" href="https://JianLiu-Blog.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+🔑【数据结构】之串、数组、矩阵和广义表
+
+
+串、数组、矩阵、与广义表
+串数据类型的定义
+串的定义
+
+串是由零个或多个字符组成的有限序列
+字符的个数称为串的长度
+零个元素的串叫空串
+\0 为编译器识别字符串结束的标记
+注意空串和空格串的区..." />
+    <meta name="keywords" content="计算机考研" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://JianLiu-Blog.github.io">
+  <img class="avatar" src="https://JianLiu-Blog.github.io/images/avatar.png?v=1735805148679" alt="">
+  </a>
+  <h1 class="site-title">
+    Liu, Jian&#39;s Blog
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Liujian1997" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+        <a href="https://www.zhihu.com/people/san-sheng-15-30" target="_blank">
+          <i class="ri-zhihu-line"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【数据结构】串、数组、矩阵和广义表
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-04-01
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://JianLiu-Blog.github.io/tag/2j1eKpJzW/" class="post-tag">
+                  # 计算机考研
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://JianLiu-Blog.github.io/post-images/1.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <blockquote>
+<p>🔑【数据结构】之<strong>串、数组、矩阵和广义表</strong></p>
+</blockquote>
+<!--more-->
+<h1 id="串-数组-矩阵-与广义表">串、数组、矩阵、与广义表</h1>
+<h2 id="串数据类型的定义">串数据类型的定义</h2>
+<h3 id="串的定义">串的定义</h3>
+<ul>
+<li>串是由零个或多个字符组成的有限序列</li>
+<li>字符的个数称为串的长度</li>
+<li>零个元素的串叫<strong>空串</strong></li>
+<li>\0 为编译器识别字符串结束的标记</li>
+<li>注意空串和空格串的区别</li>
+</ul>
+<pre><code class="language-c">char str[]=“abcdef”;//元素为a-f、\0，str数组长度为7，串str长度为6
+</code></pre>
+<h3 id="串的存储结构">串的存储结构</h3>
+<p>一般采用动态分配存储表示</p>
+<pre><code class="language-c">tpyedef struct
+{
+    char *ch;//指向动态指针分配存储区首地址的字符指针
+    int length;// 串长度（不是字符长度）
+}
+</code></pre>
+<h2 id="数组">数组</h2>
+<ul>
+<li>一维数组</li>
+<li>二维数组
+<ul>
+<li>行优先</li>
+<li>列优先</li>
+</ul>
+</li>
+</ul>
+<h2 id="矩阵的压缩存储">矩阵的压缩存储</h2>
+<h3 id="矩阵">矩阵</h3>
+<ul>
+<li>注意区分题目有的第一个元素是a00有的是a11</li>
+<li>矩阵转置</li>
+<li>矩阵相加</li>
+<li>矩阵相乘</li>
+<li>压缩存储：为多个值相同的元素只分配一个存储空间，对零元素不分配存储空间</li>
+<li>压缩存储的目标：节约存储空间</li>
+<li>压缩的方法：零元不存储；多个值相同的只存一个</li>
+<li>压缩存储的对象：特殊矩阵、稀疏矩阵</li>
+</ul>
+<h3 id="特殊矩阵和稀疏矩阵">特殊矩阵和稀疏矩阵</h3>
+<ul>
+<li>定义：相同的元素或者零元素在矩阵中存在一定规律的矩阵称为特殊矩阵，反之称为稀疏矩阵</li>
+<li>（国外）：矩阵中大多数元素都为0的矩阵称为稀疏矩阵</li>
+<li>特殊矩阵：
+<ul>
+<li>对称矩阵：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>a</mi><mrow><mi>j</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">a_{ij}=a_{ji}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，主对角线元素对等，相同元素只需保存一份，所需空间为$$\frac{(1+n)n}{2}$$</li>
+<li>三角阵：上三角：矩阵下三角部分（不包括对角线）元素全为c（c可为0）；下三角（与上相反），所需空间为$$\frac{(1+n)n}{2}+1（需要存储c）$$</li>
+<li>对角矩阵：除了主对角线以及上下两条带状区域的元素外，其余都为c（可为0）（补充）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>稀疏矩阵：常用的顺序存储方式有<strong>三元组表示法</strong>和<strong>伪地址表示法</strong></li>
+<li>注意：稀疏矩阵压缩存储后失去随机存取特性</li>
+</ul>
+<h2 id="广义表">广义表</h2>
+<ul>
+<li>长度：表中最上层元素的个数</li>
+<li>深度：括号的最大层数</li>
+<li>表头（Head）和表尾（Tail）：当广义表非空时，第一个元素为表头，<strong>其余元素伪表尾</strong></li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%B2-%E6%95%B0%E7%BB%84-%E7%9F%A9%E9%98%B5-%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8">串、数组、矩阵、与广义表</a>
+<ul>
+<li><a href="#%E4%B8%B2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89">串数据类型的定义</a>
+<ul>
+<li><a href="#%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89">串的定义</a></li>
+<li><a href="#%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">串的存储结构</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E7%BB%84">数组</a></li>
+<li><a href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%AD%98%E5%82%A8">矩阵的压缩存储</a>
+<ul>
+<li><a href="#%E7%9F%A9%E9%98%B5">矩阵</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%E5%92%8C%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5">特殊矩阵和稀疏矩阵</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B9%BF%E4%B9%89%E8%A1%A8">广义表</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://JianLiu-Blog.github.io/post/cha-zhao/">
+              <h3 class="post-title">
+                【数据结构】查找
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'Ov23lievf4UqLaA6mF0J',
+    clientSecret: 'a60d18f86b03bc0ad091687048712bd358b9be68',
+    repo: 'JianLiu-Blog.github.io',
+    owner: 'JianLiu-Blog',
+    // admin: ['Liujian1997'],
+    admin: [ 'Liujian1997', 'JianLiu-Blog'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    // id: 'Demo',
+    // id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    proxy:"https://proxy-gitalk-api.netlify.app/github_access_token"
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+<!-- <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'e46f6dec7c07145c652c',
+    clientSecret: 'd1a0b627f9b76d21bd3080d1777d0aa0ad55dd83',
+    accessToken: '6a2f4d91a1f188a2089e70c2a7b63628f3e9e664',
+    repo: 'gitalk',
+    owner: 'gitalk',
+    admin: ['booxood', 'mamboer'],
+    id: 'Demo',
+    distractionFreeMode: true
+  });
+  gitalk.render('gitalk-container');
+</script> -->
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://JianLiu-Blog.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

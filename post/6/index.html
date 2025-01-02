@@ -1,0 +1,458 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>【数据结构】栈和队列 | Liu, Jian&#39;s Blog</title>
+<link rel="shortcut icon" href="https://JianLiu-Blog.github.io/favicon.ico?v=1735805148679">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://JianLiu-Blog.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="【数据结构】栈和队列 | Liu, Jian&#39;s Blog - Atom Feed" href="https://JianLiu-Blog.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+🔑【数据结构】之栈和队列
+
+
+栈和队列
+栈和队列的基本概念
+栈的基本概念
+
+栈的定义
+栈是一种只能在一端进行插入或者删除操作的线性表，其中允许插入或者删除操作的被称为栈顶（Top），另一端被称为栈底。
+栈顶是由一个称为栈顶指针的位置指示..." />
+    <meta name="keywords" content="计算机考研" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://JianLiu-Blog.github.io">
+  <img class="avatar" src="https://JianLiu-Blog.github.io/images/avatar.png?v=1735805148679" alt="">
+  </a>
+  <h1 class="site-title">
+    Liu, Jian&#39;s Blog
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Liujian1997" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+        <a href="https://www.zhihu.com/people/san-sheng-15-30" target="_blank">
+          <i class="ri-zhihu-line"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              【数据结构】栈和队列
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-04-01
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://JianLiu-Blog.github.io/tag/2j1eKpJzW/" class="post-tag">
+                  # 计算机考研
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://JianLiu-Blog.github.io/post-images/6.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <blockquote>
+<p>🔑【数据结构】之<strong>栈和队列</strong></p>
+</blockquote>
+<!--more-->
+<h1 id="栈和队列">栈和队列</h1>
+<h2 id="栈和队列的基本概念">栈和队列的基本概念</h2>
+<h3 id="栈的基本概念">栈的基本概念</h3>
+<ul>
+<li><strong>栈的定义</strong><br>
+栈是一种只能在<strong>一端</strong>进行插入或者删除操作的<strong>线性表</strong>，其中允许插入或者删除操作的被称为栈顶（Top），另一端被称为栈底。<br>
+栈顶是由一个称为栈顶指针的位置指示器，其实就是一个变量，对于<strong>顺序栈</strong>，就是记录数组位置标号的int变量，对于<strong>链式栈</strong>，就是记录栈顶元素所在结点地址的指针。</li>
+<li><strong>栈的特点</strong>
+<ul>
+<li><strong>先进后出（FILO）</strong></li>
+</ul>
+</li>
+<li><strong>栈的顺序存储结构</strong>
+<ul>
+<li>顺序栈</li>
+<li>链式栈</li>
+</ul>
+</li>
+<li><strong>栈的数学性质</strong><br>
+当n个元素以某种方式进栈，所得元素排列的数目为<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac><msubsup><mi>C</mi><mrow><mn>2</mn><mi>n</mi></mrow><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">N=\frac{1}{n+1}C_{2n}^n
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.09077em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight">n</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+</ul>
+<h3 id="队列的基本概念">队列的基本概念</h3>
+<ul>
+<li><strong>队列的定义</strong><br>
+是一种仅允许在表的一端进行插入，在表的另一端进行删除，可插入一端叫队尾（Rear），可删除的一端叫队头（Front），插入操作叫入队，删除操作叫出队。</li>
+<li><strong>队的特点</strong>
+<ul>
+<li><strong>先进先出（FIFO）</strong></li>
+</ul>
+</li>
+<li><strong>队的存储结构</strong>
+<ul>
+<li>顺序队</li>
+<li>链式队</li>
+</ul>
+</li>
+</ul>
+<h2 id="栈">栈</h2>
+<h3 id="栈结构体定义">栈结构体定义</h3>
+<ul>
+<li>顺序栈</li>
+</ul>
+<pre><code class="language-c">#define MaxSize 50
+typedef struct
+{
+    int data[MaxSize];
+    int top;
+} SqStack;
+</code></pre>
+<ul>
+<li>链式栈</li>
+</ul>
+<pre><code class="language-c">typedef struct Linknode 
+{
+    Elemtype data;
+    struct Linknode *next;
+} *Linknode;
+</code></pre>
+<h3 id="顺序栈的基本操作">顺序栈的基本操作</h3>
+<p>主要分为两个状态、两个操作</p>
+<ul>
+<li>栈空状态<br>
+<code>S.top==-1;</code></li>
+<li>栈满状态<br>
+<code>S.top==maxSize-1;</code></li>
+<li>初始化</li>
+</ul>
+<pre><code class="language-c">void InitStack(&amp;S)
+{
+    S.top=-1;
+}
+</code></pre>
+<ul>
+<li>判栈空</li>
+</ul>
+<pre><code class="language-c">bool StackEmpty(S)
+{
+    if(S.top==-1)
+    return true;
+    else return false;
+}
+</code></pre>
+<ul>
+<li>进栈</li>
+</ul>
+<pre><code class="language-c">    bool Push(SqStack &amp;S, ElemType x)
+    {
+        if(S.top==MaxSize-1)
+        return false;
+        S.data[++S.top]=x;
+        return true;
+    }
+</code></pre>
+<ul>
+<li>出栈操作</li>
+</ul>
+<pre><code class="language-c">bool Pop(SqStack &amp;S, ElemType &amp;x)
+{
+    if(S.top==-1)
+    return false;
+    x=S.data[S.top--];
+    return true;
+}
+</code></pre>
+<ul>
+<li>栈顶元素</li>
+</ul>
+<pre><code class="language-c">bool GetTop(SqStack S, ElemType &amp;x)
+{
+    if(S.top==-1)
+    return false;
+    x=S.[S.top];
+    return true;
+}
+</code></pre>
+<ul>
+<li><strong>一键初始化：<code>int stack[maxSize]; int top=-1;</code>一键进栈：<code>stack[++top]=x;</code>一键出栈：<code>x=stack[top--]</code></strong></li>
+<li>进栈出栈前需要判断栈满和栈空</li>
+</ul>
+<h3 id="链栈">链栈</h3>
+<ul>
+<li>栈空： <code>lst-&gt;next=NULL</code></li>
+<li>不存在栈满</li>
+<li>进栈：头插法</li>
+<li>注意<strong>带头节点</strong>和<strong>不带头结点</strong>链栈在操作上的有区别</li>
+</ul>
+<h2 id="队列">队列</h2>
+<ul>
+<li>顺序队列</li>
+</ul>
+<pre><code class="language-c">#define MaxSize 50
+typedef struct
+{
+    ElemType data[MaxSize];
+    int front;
+    int rear;
+} SqQueue;
+</code></pre>
+<p><strong>队空条件</strong>：<code>Q.front==Q.rear==0;</code></p>
+<ul>
+<li>链式队列</li>
+</ul>
+<pre><code class="language-c">//队结点指针类型定义
+typedef struct
+{
+    ElemType data;
+    struct QNode *next;
+} LinkNode;
+//链队类型定义
+typedef struct
+{
+    LinkNode *front;
+    LinkNode *rear;
+} LinkQueue;
+</code></pre>
+<ul>
+<li>循环队列操作
+<ul>
+<li>队空：<code>Q.front=Q.rear;</code></li>
+<li>队满：<code>(Q.rear+1)%MaxSize=Q.front</code></li>
+<li>进队：<code>Q.rear=(Q.rear+1)%MaxSize</code></li>
+<li>进队：<code>Q.front=(Q.front+1)%MaxSize</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="栈和队列的应用">栈和队列的应用</h2>
+<ul>
+<li>匹配括号（栈）：‘（’进栈，‘）’出栈</li>
+<li>表达式求值（栈）：从左到右扫描中缀表达式，转换成后缀式（方法：把运算符提到前面为前缀式，放后面为后缀式）</li>
+<li>栈在递归中的应用：将递归转化为非递归程序时常使用栈来实现</li>
+<li>队列在计算机系统中的应用：如操作系统中的作业调度中的作业排队，打印机的打印作业也排成队列</li>
+<li>队列在<strong>层次遍历</strong>中的应用</li>
+</ul>
+<pre><code class="language-c">void LevelOrder(BinTree bt,visitFunc visit)
+{
+    const int MAXSIZE = 1024;//足够大即可
+    BinTree q[MAXSIZE];
+    int front,rear;
+    if(!bt) return;
+    //初始化队列
+    front=rear=0;
+    q[rear]=bt;
+    //队列不空，取出头结点方位并且将其左右孩子入队
+    while(front!=rear)
+    {
+        p=q[front];
+        front=(front+1)%MAXSIZE;
+        if(p)
+        {
+            visit(p-&gt;data);
+            q[rear]=p-&gt;lchild;
+            rear=(rear+1)%MAXSIZE;
+            q[rear]=p-&gt;rchild;
+            rear=(rear+1)%MAXSIZE;
+        }
+    }
+}  
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97">栈和队列</a>
+<ul>
+<li><a href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">栈和队列的基本概念</a>
+<ul>
+<li><a href="#%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">栈的基本概念</a></li>
+<li><a href="#%E9%98%9F%E5%88%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">队列的基本概念</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%88">栈</a>
+<ul>
+<li><a href="#%E6%A0%88%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89">栈结构体定义</a></li>
+<li><a href="#%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">顺序栈的基本操作</a></li>
+<li><a href="#%E9%93%BE%E6%A0%88">链栈</a></li>
+</ul>
+</li>
+<li><a href="#%E9%98%9F%E5%88%97">队列</a></li>
+<li><a href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E5%BA%94%E7%94%A8">栈和队列的应用</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://JianLiu-Blog.github.io/post/5/">
+              <h3 class="post-title">
+                【数据结构】线性表
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'Ov23lievf4UqLaA6mF0J',
+    clientSecret: 'a60d18f86b03bc0ad091687048712bd358b9be68',
+    repo: 'JianLiu-Blog.github.io',
+    owner: 'JianLiu-Blog',
+    // admin: ['Liujian1997'],
+    admin: [ 'Liujian1997', 'JianLiu-Blog'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    // id: 'Demo',
+    // id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    proxy:"https://proxy-gitalk-api.netlify.app/github_access_token"
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+<!-- <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'e46f6dec7c07145c652c',
+    clientSecret: 'd1a0b627f9b76d21bd3080d1777d0aa0ad55dd83',
+    accessToken: '6a2f4d91a1f188a2089e70c2a7b63628f3e9e664',
+    repo: 'gitalk',
+    owner: 'gitalk',
+    admin: ['booxood', 'mamboer'],
+    id: 'Demo',
+    distractionFreeMode: true
+  });
+  gitalk.render('gitalk-container');
+</script> -->
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://JianLiu-Blog.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
